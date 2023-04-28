@@ -15,5 +15,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # 复制应用程序代码到容器中
 COPY . .
 
+# 声明端口
+EXPOSE 80
+
 # 启动应用程序
 CMD ["python", "app.py"]

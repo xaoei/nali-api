@@ -43,7 +43,7 @@ if __name__ == '__main__':
     parser.add_argument("--listen-host", type=str, help="The hostname that the server will use.",
                         default=os.getenv("LISTEN_HOST", "0.0.0.0"))
     parser.add_argument("--listen-port", type=int, help="The listening port that the server will use.",
-                        default=os.getenv("LISTEN_PORT", 8080))
+                        default=os.getenv("LISTEN_PORT", 80))
     parser.add_argument("--nali-update", type=bool, help="Nali forced updates.",
                         default=os.getenv("NALI_UPDATE", False))
     parser.add_argument("--ip-update", type=bool, help="IP db forced updates.",
