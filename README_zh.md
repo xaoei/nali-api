@@ -25,3 +25,31 @@ curl http://127.0.0.1/8.8.8.8
   }
 ]
 ```
+
+### 使用Docker运行.
+```shell
+docker run -d --name nali-api --restart always -p 8080:80 reallester/nali-api:latest
+```
+
+### 使用Compose运行.
+```
+version: '3'
+services:
+  nali-api:
+    image: reallester/nali-api:latest
+    container_name: nali-api
+    restart: always
+    environment:
+      NALI_UPDATE: "false"
+      IP_UPDATE: "true"
+    ports:
+      - "8080:80"
+```
+
+### 参数.
+| 参数名称          | 环境变量名       | 默认值     | 描述                         |
+|---------------|-------------|---------|----------------------------|
+| --listen-host | LISTEN_HOST | 0.0.0.0 | 服务器将使用的主机名.（在docker环境中无效）  |
+| --listen-port | LISTEN_PORT | 80      | 服务器将使用的监听端口.（在docker环境中无效） |
+| --nali-update | NALI_UPDATE | false   | 是否强制更新nali程序.              |
+| --ipdb-update | IPDB_UPDATE | false    | 是否强制更新IP地址数据库.             |
