@@ -94,7 +94,7 @@ def nali(ip):
         })
     return {
         "code": "1",
-        "msg": "Not receiving any ip.",
+        "msg": "Success.",
         "data": result
     }
 
