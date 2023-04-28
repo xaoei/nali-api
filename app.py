@@ -36,7 +36,7 @@ if __name__ == '__main__':
     # 创建解析器对象，并添加一个命令行参数
     parser = argparse.ArgumentParser()
     parser.add_argument("--listen-host", type=str, help="The hostname that the server will use.",
-                        default=os.getenv("LISTEN_HOST", "127.0.0.1"))
+                        default=os.getenv("LISTEN_HOST", "0.0.0.0"))
     parser.add_argument("--listen-port", type=int, help="The listening port that the server will use.",
                         default=os.getenv("LISTEN_PORT", 8080))
     parser.add_argument("--nali-update", type=bool, help="Nali forced updates.",
