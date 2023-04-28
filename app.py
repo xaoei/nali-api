@@ -9,6 +9,13 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
+project_dir = os.path.dirname(os.path.abspath(__file__))
+
+
+@app.route('/')
+def index():
+    return "ok"
+
 
 @app.route('/<ip>')
 def nali(ip):
@@ -16,7 +23,7 @@ def nali(ip):
         return 'Please provide an IP address.'
     ips = re.findall("(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}?)+", ip)
 
-    cmd_result = subprocess.run(['./scripts/nali', " ".join(ips)], stdout=subprocess.PIPE)
+    cmd_result = subprocess.run([f'{project_dir}/scripts/nali', " ".join(ips)], stdout=subprocess.PIPE)
     ip_info_str_list = cmd_result.stdout.decode().split("  ")
     ip_info_str_list = [(el.strip()) for el in ip_info_str_list]
     result = []
@@ -31,8 +38,6 @@ def nali(ip):
 
 
 if __name__ == '__main__':
-    project_dir = os.path.dirname(os.path.abspath(__file__))
-
     # 创建解析器对象，并添加一个命令行参数
     parser = argparse.ArgumentParser()
     parser.add_argument("--listen-host", type=str, help="The hostname that the server will use.",
