@@ -13,7 +13,7 @@ python app.py
 
 ### Request.
 ```shell
-curl http://127.0.0.1:8080/8.8.8.8
+curl http://127.0.0.1/8.8.8.8
 ```
 
 ### Response.
